@@ -57,8 +57,7 @@ $color-tertiary: #99E2D0;
 
     @media screen and (min-width: 762px) and (max-width: 375px) {}
 
-    @media screen and (min-width: 992px) {
-    }
+    @media screen and (min-width: 992px) {}
 }
 
 .intro {
@@ -161,6 +160,10 @@ $color-tertiary: #99E2D0;
     width: 275px;
     cursor: pointer;
 
+    &--last {
+        background-color: lighten($color-primary, 35%);
+    }
+
     &__purple-circle {
         background-color: $color-primary;
         padding: 4px 8px;
@@ -175,7 +178,7 @@ $color-tertiary: #99E2D0;
         color: #5E5E5E;
         margin-right: 30px;
 
-        &:hover {
+        &--last {
             color: $color-primary;
         }
     }
@@ -184,43 +187,149 @@ $color-tertiary: #99E2D0;
         font-weight: 600;
     }
 
-    &:hover {
-        background-color: $color-primary;
+}
+
+.restaurant-area {
+    background-color: #F7F7F7;
+    padding: 20px 0px;
+    height: auto;
+
+    &__title{
+        margin-left: 20px;
+
+        @media screen and (min-width: 376px) and (max-width: 992px) {
+            text-align: center;
+        }
+
+        @media screen and (min-width: 992px) {
+            text-align: center;
+        }
+    
     }
 }
 
-    .restaurant-area{
-        background-color: #F7F7F7;
-        padding: 20px;
-    }
+.restaurant-card-area{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-
-    .restaurant-card{
+    @media screen and (min-width: 376px) and (max-width: 992px) {
         display: flex;
-        flex-direction: column;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border: none;
-        border-radius: 20px 20px;
-        width: 300px;
-        height: 200px;
-        margin: 7px;
-
-    &__image{
-        font-size: 40px;
-        width: 118px;
-        height: 135px;
-        object-fit: cover;
-        border-radius: 20px 0px 0px 20px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 10px;
     }
 
-    &__container{
+    @media screen and (min-width: 992px) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+
+
+}
+
+.restaurant-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 2px 10px 2px lightgray;
+    transition: 0.3s;
+    border: none;
+    border-radius: 20px 20px;
+    width: 330px;
+    height: auto;
+    position: relative;
+    margin-bottom: 20px;
+
+
+    &:hover{
+        scale: 1.05;
+        transition: 400ms;
+    }
+    &__image {
+        font-size: 40px;
+        width: 330px;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 20px 20px 0px 0px;
+    }
+
+    &__new {
+        background-color: $color-tertiary;
+        width: 70px;
+        padding: 5px;
+        font-size: 14px;
+        color: darken($color-tertiary, 35%);
+        font-weight: 700;
+        position: absolute;
+        top: 15px;
+        left: 230px;
+        z-index: 1;
+        text-align: center;
+        border-radius: 2px;
+    }
+
+    &__container {
         position: relative;
-        padding: 2px 30px 2px 0px;
+        padding: 5px 20px 5px 0px;
         background-color: white;
         margin-left: 0px;
         border-radius: 0px 0px 20px 20px;
     }
 
 
+    &__title {
+        margin: 0px;
+        position: relative;
+        padding-bottom: 5px;
+        top: 5px;
+        left: 14px;
+        font-size: 17px;
     }
+
+    &__city {
+        position: relative;
+        top: 2px;
+        left: 14px;
+        font-size: 15px;
+        padding-bottom: 10px;
+    }
+
+    &__heart {
+        position: absolute;
+        left: 290px;
+        bottom: 20px;
+        font-size: 25px;
+    }
+
+    &__full-heart {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        position: absolute;
+        bottom: 20px;
+        left: 290px;
+        font-size: 25px;
+        opacity: 0;
+
+        &:hover{
+            opacity: 1;
+            transition: 400ms;
+            background: -webkit-linear-gradient(top, $color-secondary, $color-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            cursor: pointer;
+        }
+    }
+
+    @media screen and (min-width: 376px) and (max-width: 762px) {}
+
+    @media screen and (min-width: 992px) {
+        margin: 0px;
+    }
+
+}
