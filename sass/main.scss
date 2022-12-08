@@ -433,6 +433,15 @@ a {
     padding: 30px 5px 10px 5px;
     position: relative;
 
+    &__title-area{
+        width: auto;
+        // text-align: center;
+
+        @media screen and (min-width: 992px) {
+            text-align: center;
+        }
+    }
+
 
 
     &__title{
@@ -453,7 +462,18 @@ a {
         }
 
         &--1{
-            width: 300px;
+
+            padding: 0px 40px 0px 0px;
+
+            @media screen and (min-width: 376px) and (max-width: 992px) {
+                text-align: center;
+
+                
+            }
+        
+            @media screen and (min-width: 992px) {
+                text-align: center;
+            }
         }
     }
 
@@ -505,6 +525,10 @@ a {
         position: relative;
         margin: 10px 0px;
 
+        &:hover{
+            transform: scale(1.05);
+        }
+
         @media screen and (min-width: 992px) {
 
         }
@@ -515,7 +539,7 @@ a {
             font-size: 18px;
             position: relative;
             top: 5px;
-            width: 250px;
+            width: 275px;
         }
 
         &__description{
