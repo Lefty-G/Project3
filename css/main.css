@@ -309,6 +309,48 @@ template {
   display: none;
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes remove-spinner {
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+@keyframes overlay {
+  100% {
+    transform: translateX(-2000px);
+  }
+}
+.overlay {
+  background: rgba(158, 156, 156, 0.7);
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  transition: opacity 0.5s ease-out;
+  animation: overlay 0s 2s forwards;
+  z-index: 9999;
+}
+.overlay__loader {
+  position: absolute;
+  top: 48%;
+  right: 48%;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #9356DC;
+  width: 70px;
+  height: 70px;
+  animation: spin 1s linear infinite, remove-spinner 0s 2s forwards;
+}
+
 .a {
   text-decoration: none;
 }
@@ -668,7 +710,7 @@ a {
 @media screen and (min-width: 376px) and (max-width: 992px) {
   .hero-image__image {
     max-height: 500px;
-    object-fit: fill;
+    object-fit: cover;
     height: auto;
   }
 }
@@ -676,7 +718,7 @@ a {
   .hero-image__image {
     max-height: 600px;
     height: auto;
-    object-fit: fill;
+    object-fit: cover;
   }
 }
 
@@ -715,7 +757,7 @@ a {
   }
 }
 .menu-area__title--1 {
-  padding: 0px 40px 0px 0px;
+  padding: 0px 50px 0px 0px;
 }
 @media screen and (min-width: 376px) and (max-width: 992px) {
   .menu-area__title--1 {
@@ -734,6 +776,13 @@ a {
 }
 .menu-area__heart--1 {
   top: 30px;
+}
+
+@media screen and (min-width: 992px) {
+  .course-area {
+    display: flex;
+    justify-content: space-around;
+  }
 }
 
 .course {
@@ -755,10 +804,15 @@ a {
 .course__title {
   font-weight: 100;
   font-size: 15px;
-  border-bottom: 3px solid #99E2D0;
   padding-bottom: 5px;
   width: 80px;
   position: relative;
+  margin-bottom: 0px;
+}
+.course__underline {
+  border-top: 3px solid #99E2D0;
+  padding: 5px 5px 5px 0px;
+  width: 30px;
 }
 .course__menu-card {
   padding: 10px;

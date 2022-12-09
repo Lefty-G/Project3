@@ -1,12 +1,52 @@
 @import "normalize";
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import "./utils/variables";
 
-$color-primary: #9356DC;
-$color-secondary: #FF79DA;
-$color-tertiary: #99E2D0;
-$color-light-grey: #F7F7F7;
-$color-dark-grey: #EFEFEF;
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes remove-spinner {
+    100% {
+        transform: translateX(-1000px);
+    }
+}
+
+@keyframes overlay{
+    100% {
+        transform: translateX(-2000px);
+    }
+}
+
+.overlay{
+  background:rgba(158, 156, 156, 0.7);
+  position: fixed;
+  left:0;right:0;top:0;bottom:0;
+  width: 100%;
+  transition: opacity .5s ease-out;
+  animation: overlay 0s 2s forwards;
+  z-index: 9999;
+  
+    &__loader{
+    position: absolute;
+    top: 48%;right: 48%;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid $color-primary;
+    width: 70px;
+    height: 70px;
+    animation: spin 1s linear infinite, remove-spinner 0s 2s forwards;
+    }
+}
+
 
 .a {
     text-decoration: none;
@@ -33,7 +73,7 @@ $color-dark-grey: #EFEFEF;
         height: auto;
     }
 
-    &__arrow{
+    &__arrow {
         position: absolute;
         bottom: 20px;
         left: 20px;
@@ -384,47 +424,47 @@ a {
         font-size: 13px;
         margin-right: 10px;
 
-        &--1{
+        &--1 {
             font-size: 12px;
             margin-right: 7px;
         }
     }
 
-    &__link{
+    &__link {
         color: white;
     }
 }
 
 // restaurant menu pages
-.hero-image{
+.hero-image {
 
 
-    @media screen and (min-width: 992px){
+    @media screen and (min-width: 992px) {
         padding: 0px 40px;
         background-color: $color-dark-grey;
     }
 
-    &__image{
+    &__image {
         width: 100%;
         height: 300px;
         z-index: 0;
 
         @media screen and (min-width: 376px) and (max-width: 992px) {
             max-height: 500px;
-            object-fit: fill;
+            object-fit: cover;
             height: auto;
         }
 
         @media screen and (min-width: 992px) {
             max-height: 600px;
             height: auto;
-            object-fit: fill;
+            object-fit: cover;
         }
-    
+
     }
 }
 
-.menu-area{
+.menu-area {
     background-color: $color-light-grey;
     height: auto;
     margin-top: -50px;
@@ -433,7 +473,10 @@ a {
     padding: 30px 5px 10px 5px;
     position: relative;
 
-    &__title-area{
+    @media screen and (min-width: 992px) {
+        // display: flex;
+    }
+    &__title-area {
         width: auto;
         // text-align: center;
 
@@ -444,33 +487,33 @@ a {
 
 
 
-    &__title{
+    &__title {
         margin: 0px 10px;
         padding: 0px;
         font-family: 'shrikhand', sans-serif;
         font-size: 28px;
         font-weight: 200;
-       
-        
+
+
 
         @media screen and (min-width: 376px) and (max-width: 992px) {
             text-align: center;
         }
-    
+
         @media screen and (min-width: 992px) {
             text-align: center;
         }
 
-        &--1{
+        &--1 {
 
-            padding: 0px 40px 0px 0px;
+            padding: 0px 50px 0px 0px;
 
             @media screen and (min-width: 376px) and (max-width: 992px) {
                 text-align: center;
 
-                
+
             }
-        
+
             @media screen and (min-width: 992px) {
                 text-align: center;
             }
@@ -482,13 +525,23 @@ a {
         position: absolute;
         right: 40px;
 
-        &--1{
+        &--1 {
             top: 30px;
         }
     }
 }
 
-.course{
+.course-area{
+
+    @media screen and (min-width: 992px) {
+        display: flex;
+        justify-content: space-around;
+
+    }
+    
+}
+
+.course {
     margin: 20px 10px;
     margin-bottom: 30px;
     display: flex;
@@ -498,24 +551,31 @@ a {
         align-items: center;
     }
 
-    
+
     @media screen and (min-width: 992px) {
         align-items: center;
-    }
-
-
-    &__title{
-        font-weight: 100;
-        font-size: 15px;
-        border-bottom: 3px solid $color-tertiary;
-        padding-bottom: 5px;
-        width: 80px;
-        position: relative;
-
         
     }
 
-    &__menu-card{
+
+    &__title {
+        font-weight: 100;
+        font-size: 15px;
+        padding-bottom: 5px;
+        width: 80px;
+        position: relative;
+        margin-bottom: 0px;
+    }
+
+    &__underline{
+        border-top: 3px solid $color-tertiary;
+        padding: 5px 5px 5px 0px;
+        width: 30px;
+        
+        
+    }
+
+    &__menu-card {
         padding: 10px;
         padding-bottom: 0px;
         background-color: white;
@@ -525,16 +585,14 @@ a {
         position: relative;
         margin: 10px 0px;
 
-        &:hover{
+        &:hover {
             transform: scale(1.05);
         }
 
-        @media screen and (min-width: 992px) {
+        @media screen and (min-width: 992px) {}
 
-        }
-        
 
-        &__title{
+        &__title {
             margin: 0px;
             font-size: 18px;
             position: relative;
@@ -542,7 +600,7 @@ a {
             width: 275px;
         }
 
-        &__description{
+        &__description {
             position: relative;
             margin: 0px;
             font-size: 15px;
@@ -553,7 +611,7 @@ a {
             width: 285px;
         }
 
-        &__price{
+        &__price {
             margin: 0px;
             font-size: 15px;
             font-weight: 600;
@@ -564,10 +622,10 @@ a {
     }
 }
 
-.order-button{
+.order-button {
     text-align: center;
 
-    .button{
+    .button {
         background-image: linear-gradient($color-secondary, $color-primary);
         padding: 15px 20px;
         width: 230px;
