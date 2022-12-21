@@ -35,10 +35,6 @@
     padding: 30px 5px 10px 5px;
     position: relative;
 
-    @media screen and (min-width: 992px) {
-        // display: flex;
-    }
-
     &__title-area {
         width: auto;
 
@@ -106,11 +102,11 @@
 
 @keyframes check-spin-in {
     0% {
-        transform: rotate(360deg);
+        transform: rotate(0deg);
     }
 
     100% {
-        transform: rotate(0deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -242,7 +238,6 @@
         &__check-mark {
             padding: 25px 0px 0px 0px;
             width: 60px;
-            // height: px;
             background-color: $color-tertiary;
             border-radius: 0px 15px 15px 0px;
             text-align: center;
@@ -260,8 +255,6 @@
             font-size: 18px;
             position: relative;
             width: 200px;
-            // top: -10px;
-
         }
 
         &__description {
