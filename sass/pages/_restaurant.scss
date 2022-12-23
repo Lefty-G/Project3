@@ -210,15 +210,15 @@
         }
 
         &--2 {
-            animation: menu-loader 1s 1.5s forwards;
+            animation: menu-loader 1s 1.25s forwards;
         }
 
         &--3 {
-            animation: menu-loader 1s 2s forwards;
+            animation: menu-loader 1s 1.5s forwards;
         }
 
         &--4{
-            animation: menu-loader 1s 2.5s forwards;
+            animation: menu-loader 1s 1.75s forwards;
         }
 
         &:hover {
@@ -254,7 +254,8 @@
             margin: 0px;
             font-size: 18px;
             position: relative;
-            width: 200px;
+            width: 300px;
+            white-space: normal;
         }
 
         &__description {

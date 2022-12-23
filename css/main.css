@@ -388,7 +388,7 @@ template {
 }
 @keyframes overlay {
   100% {
-    transform: translateX(-2000px);
+    transform: translateX(-10000px);
   }
 }
 .overlay {
@@ -505,7 +505,7 @@ template {
 
 .hiw-title {
   margin: 20px 10px;
-  width: 400px;
+  width: 200px;
 }
 @media screen and (min-width: 992px) {
   .hiw-title {
@@ -877,13 +877,13 @@ a {
   animation: menu-loader 1s 1s forwards;
 }
 .course__menu-card--2 {
-  animation: menu-loader 1s 1.5s forwards;
+  animation: menu-loader 1s 1.25s forwards;
 }
 .course__menu-card--3 {
-  animation: menu-loader 1s 2s forwards;
+  animation: menu-loader 1s 1.5s forwards;
 }
 .course__menu-card--4 {
-  animation: menu-loader 1s 2.5s forwards;
+  animation: menu-loader 1s 1.75s forwards;
 }
 .course__menu-card:hover .course__menu-card__icon {
   animation: check-spin-in 0.5s linear reverse, check-spin-out 0.5s linear forwards;
@@ -905,7 +905,8 @@ a {
   margin: 0px;
   font-size: 18px;
   position: relative;
-  width: 200px;
+  width: 300px;
+  white-space: normal;
 }
 .course__menu-card__description {
   position: relative;
